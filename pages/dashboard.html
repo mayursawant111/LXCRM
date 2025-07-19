@@ -1,3 +1,17 @@
+<!--
+=========================================================
+* Material Dashboard 3 - v3.2.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2024 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,584 +21,203 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    LeadXcel B2B CRM Dashboard
+    Material Dashboard 3 by Creative Tim
   </title>
   <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
   <!-- Nucleo Icons -->
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- ApexCharts for Advanced Analytics -->
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-  <!-- Dark Theme & Enhanced CRM Styles -->
-  <style>
-    /* Dark Theme Base */
-    body,
-    .bg-gray-100 {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
-      color: #ffffff !important;
-    }
-
-    .sidenav {
-      background: rgba(26, 26, 46, 0.95) !important;
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    }
-
-    .navbar-brand-img {
-      filter: brightness(0) invert(1);
-    }
-
-    .card {
-      background: rgba(30, 30, 50, 0.9) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
-    }
-
-    .navbar-main {
-      background: rgba(26, 26, 46, 0.9) !important;
-      backdrop-filter: blur(20px);
-    }
-
-    .text-dark,
-    .text-secondary {
-      color: #ffffff !important;
-    }
-
-    .text-muted {
-      color: #b8b9bd !important;
-    }
-
-    /* Enhanced KPI Cards */
-    .kpi-card {
-      background: linear-gradient(135deg, rgba(94, 114, 228, 0.2), rgba(118, 75, 162, 0.2));
-      border: 1px solid rgba(94, 114, 228, 0.3);
-      border-radius: 20px;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .kpi-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #5e72e4, #764ba2);
-    }
-
-    .kpi-icon {
-      background: linear-gradient(135deg, #5e72e4, #764ba2);
-      width: 60px;
-      height: 60px;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(94, 114, 228, 0.3);
-    }
-
-    /* Advanced Lead Scoring */
-    .lead-score-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .lead-score-badge {
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .score-hot {
-      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-      color: white;
-      animation: pulse 2s infinite;
-    }
-
-    .score-warm {
-      background: linear-gradient(135deg, #feca57, #ff9ff3);
-      color: #2d3436;
-    }
-
-    .score-cold {
-      background: linear-gradient(135deg, #74b9ff, #0984e3);
-      color: white;
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
-      }
-
-      70% {
-        box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
-      }
-    }
-
-    /* Enhanced Pipeline */
-    .pipeline-stage {
-      background: rgba(40, 40, 60, 0.8);
-      border: 2px dashed rgba(94, 114, 228, 0.3);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin: 0.5rem 0;
-      min-height: 200px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .pipeline-stage::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #5e72e4, #764ba2);
-      border-radius: 15px 15px 0 0;
-    }
-
-    .pipeline-stage:hover {
-      border-color: #5e72e4;
-      background: rgba(94, 114, 228, 0.1);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(94, 114, 228, 0.2);
-    }
-
-    .lead-card {
-      background: rgba(50, 50, 70, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 1rem;
-      margin: 0.8rem 0;
-      cursor: grab;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .lead-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      border-color: #5e72e4;
-    }
-
-    .lead-card:active {
-      cursor: grabbing;
-    }
-
-    /* Progress Tracking Graph */
-    .progress-graph-container {
-      background: rgba(30, 30, 50, 0.95);
-      border-radius: 20px;
-      padding: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Advanced Features Sections */
-    .feature-section {
-      background: rgba(40, 40, 60, 0.8);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 1rem 0;
-      border: 1px solid rgba(94, 114, 228, 0.2);
-    }
-
-    .feature-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .feature-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #5e72e4, #764ba2);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 18px;
-    }
-
-    /* Data Tables */
-    .crm-table {
-      background: rgba(30, 30, 50, 0.8);
-      border-radius: 15px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .crm-table th {
-      background: rgba(94, 114, 228, 0.2);
-      color: #ffffff;
-      border: none;
-      padding: 1rem;
-    }
-
-    .crm-table td {
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 1rem;
-      color: #ffffff;
-    }
-
-    /* Form Controls */
-    .form-control,
-    .form-select {
-      background: rgba(40, 40, 60, 0.8) !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
-      color: #ffffff !important;
-      border-radius: 10px !important;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-      background: rgba(40, 40, 60, 0.9) !important;
-      border-color: #5e72e4 !important;
-      box-shadow: 0 0 0 0.2rem rgba(94, 114, 228, 0.25) !important;
-    }
-
-    /* Buttons */
-    .btn-primary {
-      background: linear-gradient(135deg, #5e72e4, #764ba2) !important;
-      border: none !important;
-      border-radius: 10px !important;
-      padding: 12px 24px !important;
-      font-weight: 600 !important;
-      transition: all 0.3s ease !important;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(94, 114, 228, 0.4) !important;
-    }
-
-    /* Activity Timeline */
-    .activity-timeline {
-      position: relative;
-      padding-left: 3rem;
-    }
-
-    .activity-timeline::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, #5e72e4, #764ba2);
-    }
-
-    .activity-item {
-      position: relative;
-      padding-bottom: 2rem;
-      background: rgba(40, 40, 60, 0.5);
-      border-radius: 10px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .activity-item::before {
-      content: '';
-      position: absolute;
-      left: -35px;
-      top: 15px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #5e72e4;
-      border: 3px solid rgba(26, 26, 46, 1);
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .pipeline-stage {
-        min-height: 150px;
-      }
-
-      .kpi-card {
-        padding: 1.5rem;
-      }
-
-      .feature-section {
-        padding: 1rem;
-      }
-    }
-
-    /* Loading States */
-    .loading {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .loading::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      animation: shimmer 1.5s infinite;
-    }
-
-    @keyframes shimmer {
-      100% {
-        left: 100%;
-      }
-    }
-
-    /* Notification System */
-    .notification {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: rgba(30, 30, 50, 0.95);
-      border: 1px solid rgba(94, 114, 228, 0.3);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      color: white;
-      z-index: 9999;
-      animation: slideIn 0.3s ease;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-  </style>
+  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.2.0" rel="stylesheet" />
 </head>
 
-<body class="g-sidenav-show bg-gray-100">
-  <div class="min-height-300 position-absolute w-100"
-    style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);"></div>
-
-  <!-- Enhanced Sidebar -->
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4"
-    id="sidenav-main">
+<body class="g-sidenav-show  bg-gray-100">
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-lg fixed-start ms-2  bg-white my-2" id="sidenav-main">
     <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-        aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="#" target="_blank">
-        <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">LeadXcel CRM</span>
+      <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand px-4 py-3 m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+        <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img" width="26" height="26" alt="main_logo">
+        <span class="ms-1 text-sm text-dark">Creative Tim</span>
       </a>
     </div>
-    <hr class="horizontal light mt-0">
-    <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+    <hr class="horizontal dark mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active" href="#dashboard">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-            </div>
+          <a class="nav-link active bg-gradient-dark text-white" href="../pages/dashboard.html">
+            <i class="material-symbols-rounded opacity-5">dashboard</i>
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#leads">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-single-02 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Lead Management</span>
+          <a class="nav-link text-dark" href="../pages/tables.html">
+            <i class="material-symbols-rounded opacity-5">table_view</i>
+            <span class="nav-link-text ms-1">Tables</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#pipeline">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-chart-pie-35 text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sales Pipeline</span>
+          <a class="nav-link text-dark" href="../pages/billing.html">
+            <i class="material-symbols-rounded opacity-5">receipt_long</i>
+            <span class="nav-link-text ms-1">Billing</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#companies">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-building text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Account Management</span>
+          <a class="nav-link text-dark" href="../pages/virtual-reality.html">
+            <i class="material-symbols-rounded opacity-5">view_in_ar</i>
+            <span class="nav-link-text ms-1">Virtual Reality</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#analytics">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-chart-bar-32 text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Advanced Analytics</span>
+          <a class="nav-link text-dark" href="../pages/rtl.html">
+            <i class="material-symbols-rounded opacity-5">format_textdirection_r_to_l</i>
+            <span class="nav-link-text ms-1">RTL</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#automation">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-settings-gear-65 text-primary text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Marketing Automation</span>
+          <a class="nav-link text-dark" href="../pages/notifications.html">
+            <i class="material-symbols-rounded opacity-5">notifications</i>
+            <span class="nav-link-text ms-1">Notifications</span>
           </a>
         </li>
         <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder text-white opacity-6">Lead Intelligence</h6>
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-dark font-weight-bolder opacity-5">Account pages</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#scoring">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-trophy text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Lead Scoring</span>
+          <a class="nav-link text-dark" href="../pages/profile.html">
+            <i class="material-symbols-rounded opacity-5">person</i>
+            <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#enrichment">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-world-2 text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Data Enrichment</span>
+          <a class="nav-link text-dark" href="../pages/sign-in.html">
+            <i class="material-symbols-rounded opacity-5">login</i>
+            <span class="nav-link-text ms-1">Sign In</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#sequences">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-send text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Email Sequences</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#social">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-chat-round text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Social CRM</span>
-          </a>
-        </li>
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder text-white opacity-6">Revenue Operations</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#forecasting">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-chart-pie-35 text-primary text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Revenue Forecasting</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#attribution">
-            <div
-              class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-bullet-list-67 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Attribution Modeling</span>
+          <a class="nav-link text-dark" href="../pages/sign-up.html">
+            <i class="material-symbols-rounded opacity-5">assignment</i>
+            <span class="nav-link-text ms-1">Sign Up</span>
           </a>
         </li>
       </ul>
     </div>
+    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+      <div class="mx-3">
+        <a class="btn btn-outline-dark mt-4 w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard?ref=sidebarfree" type="button">Documentation</a>
+        <a class="btn bg-gradient-dark w-100" href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to pro</a>
+      </div>
+    </div>
   </aside>
-
-  <main class="main-content position-relative border-radius-lg">
-    <!-- Enhanced Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur">
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <!-- Navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-3 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Dashboard</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">B2B Lead Intelligence</li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Complete B2B CRM & Lead Generation Platform</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-white"
-                style="background: rgba(40, 40, 60, 0.8); border: 1px solid rgba(255, 255, 255, 0.2);">
-                <i class="fas fa-search" aria-hidden="true"></i>
-              </span>
-              <input type="text" class="form-control" placeholder="Search leads, companies, deals..." id="globalSearch">
+            <div class="input-group input-group-outline">
+              <label class="form-label">Type here...</label>
+              <input type="text" class="form-control">
             </div>
           </div>
-          <ul class="navbar-nav justify-content-end">
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                <i class="ni ni-notification-70 cursor-pointer"></i>
-                <span class="badge bg-danger badge-sm" id="notificationCount">7</span>
+          <ul class="navbar-nav d-flex align-items-center  justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
+            </li>
+            <li class="mt-1">
+              <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
+            </li>
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
               </a>
-              <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4"
-                style="background: rgba(30, 30, 50, 0.95); border: 1px solid rgba(255, 255, 255, 0.1);">
+            </li>
+            <li class="nav-item px-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0">
+                <i class="material-symbols-rounded fixed-plugin-button-nav">settings</i>
+              </a>
+            </li>
+            <li class="nav-item dropdown pe-3 d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="material-symbols-rounded">notifications</i>
+              </a>
+              <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                 <li class="mb-2">
-                  <a class="dropdown-item border-radius-md text-white" href="javascript:;">
+                  <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <div class="avatar avatar-sm me-3 bg-gradient-success">
-                          <i class="fas fa-user-plus"></i>
-                        </div>
+                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1 text-white">
-                          <span class="font-weight-bold">Hot lead</span> scored 94 points
+                        <h6 class="text-sm font-weight-normal mb-1">
+                          <span class="font-weight-bold">New message</span> from Laur
                         </h6>
                         <p class="text-xs text-secondary mb-0">
                           <i class="fa fa-clock me-1"></i>
-                          2 minutes ago
+                          13 minutes ago
                         </p>
                       </div>
                     </div>
                   </a>
                 </li>
                 <li class="mb-2">
-                  <a class="dropdown-item border-radius-md text-white" href="javascript:;">
+                  <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <div class="avatar avatar-sm me-3 bg-gradient-primary">
-                          <i class="fas fa-handshake"></i>
-                        </div>
+                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
-                        <h6 class="text-sm font-weight-normal mb-1 text-white">
-                          <span class="font-weight-bold">Deal moved</span> to negotiation
+                        <h6 class="text-sm font-weight-normal mb-1">
+                          <span class="font-weight-bold">New album</span> by Travis Scott
                         </h6>
                         <p class="text-xs text-secondary mb-0">
                           <i class="fa fa-clock me-1"></i>
-                          1 hour ago
+                          1 day
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item border-radius-md" href="javascript:;">
+                    <div class="d-flex py-1">
+                      <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
+                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <title>credit-card</title>
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                              <g transform="translate(1716.000000, 291.000000)">
+                                <g transform="translate(453.000000, 454.000000)">
+                                  <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                  <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="d-flex flex-column justify-content-center">
+                        <h6 class="text-sm font-weight-normal mb-1">
+                          Payment successfully completed
+                        </h6>
+                        <p class="text-xs text-secondary mb-0">
+                          <i class="fa fa-clock me-1"></i>
+                          2 days
                         </p>
                       </div>
                     </div>
@@ -593,664 +226,494 @@
               </ul>
             </li>
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
-                <i class="ni ni-single-02"></i>
-                <span class="d-sm-inline d-none">Sales Manager</span>
+              <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+                <i class="material-symbols-rounded">account_circle</i>
               </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
-    <div class="container-fluid py-4">
-      <!-- Enhanced KPI Dashboard -->
+    <!-- End Navbar -->
+    <div class="container-fluid py-2">
       <div class="row">
+        <div class="ms-3">
+          <h3 class="mb-0 h4 font-weight-bolder">Dashboard</h3>
+          <p class="mb-4">
+            Check the sales, value and bounce rate by country.
+          </p>
+        </div>
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card kpi-card">
-            <div class="card-body p-0">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold text-white opacity-8">Total Pipeline Value
-                    </p>
-                    <h4 class="font-weight-bolder text-white" id="totalPipelineValue">$2,847,650</h4>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+18.5%</span>
-                      <span class="text-white text-sm">vs last month</span>
-                    </p>
-                    <small class="text-white opacity-6">Coverage Ratio: 3.2x</small>
-                  </div>
+          <div class="card">
+            <div class="card-header p-2 ps-3">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="text-sm mb-0 text-capitalize">Today's Money</p>
+                  <h4 class="mb-0">$53k</h4>
                 </div>
-                <div class="col-4 text-end">
-                  <div class="kpi-icon">
-                    <i class="ni ni-money-coins text-white text-lg opacity-10"></i>
-                  </div>
+                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                  <i class="material-symbols-rounded opacity-10">weekend</i>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card kpi-card">
-            <div class="card-body p-0">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold text-white opacity-8">Lead Velocity</p>
-                    <h4 class="font-weight-bolder text-white" id="leadVelocity">34.2 days</h4>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">-5.3 days</span>
-                      <span class="text-white text-sm">faster</span>
-                    </p>
-                    <small class="text-white opacity-6">Avg. sales cycle</small>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="kpi-icon">
-                    <i class="ni ni-chart-bar-32 text-white text-lg opacity-10"></i>
-                  </div>
-                </div>
-              </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-2 ps-3">
+              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+55% </span>than last week</p>
             </div>
           </div>
         </div>
-
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card kpi-card">
-            <div class="card-body p-0">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold text-white opacity-8">MQL to SQL Rate</p>
-                    <h4 class="font-weight-bolder text-white" id="mqlToSqlRate">28.7%</h4>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+4.1%</span>
-                      <span class="text-white text-sm">improvement</span>
-                    </p>
-                    <small class="text-white opacity-6">Quality indicator</small>
-                  </div>
+          <div class="card">
+            <div class="card-header p-2 ps-3">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="text-sm mb-0 text-capitalize">Today's Users</p>
+                  <h4 class="mb-0">2300</h4>
                 </div>
-                <div class="col-4 text-end">
-                  <div class="kpi-icon">
-                    <i class="ni ni-trophy text-white text-lg opacity-10"></i>
-                  </div>
+                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                  <i class="material-symbols-rounded opacity-10">person</i>
                 </div>
               </div>
             </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-2 ps-3">
+              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+3% </span>than last month</p>
+            </div>
           </div>
         </div>
-
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-header p-2 ps-3">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="text-sm mb-0 text-capitalize">Ads Views</p>
+                  <h4 class="mb-0">3,462</h4>
+                </div>
+                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                  <i class="material-symbols-rounded opacity-10">leaderboard</i>
+                </div>
+              </div>
+            </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-2 ps-3">
+              <p class="mb-0 text-sm"><span class="text-danger font-weight-bolder">-2% </span>than yesterday</p>
+            </div>
+          </div>
+        </div>
         <div class="col-xl-3 col-sm-6">
-          <div class="card kpi-card">
-            <div class="card-body p-0">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold text-white opacity-8">Customer LTV</p>
-                    <h4 class="font-weight-bolder text-white" id="customerLTV">$45,890</h4>
-                    <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+12.3%</span>
-                      <span class="text-white text-sm">growth</span>
-                    </p>
-                    <small class="text-white opacity-6">Lifetime value</small>
-                  </div>
+          <div class="card">
+            <div class="card-header p-2 ps-3">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="text-sm mb-0 text-capitalize">Sales</p>
+                  <h4 class="mb-0">$103,430</h4>
                 </div>
-                <div class="col-4 text-end">
-                  <div class="kpi-icon">
-                    <i class="ni ni-single-02 text-white text-lg opacity-10"></i>
-                  </div>
+                <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
+                  <i class="material-symbols-rounded opacity-10">weekend</i>
                 </div>
+              </div>
+            </div>
+            <hr class="dark horizontal my-0">
+            <div class="card-footer p-2 ps-3">
+              <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+5% </span>than yesterday</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mt-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="mb-0 ">Website Views</h6>
+              <p class="text-sm ">Last Campaign Performance</p>
+              <div class="pe-2">
+                <div class="chart">
+                  <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm"> campaign sent 2 days ago </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-4 mb-4">
+          <div class="card ">
+            <div class="card-body">
+              <h6 class="mb-0 "> Daily Sales </h6>
+              <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
+              <div class="pe-2">
+                <div class="chart">
+                  <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm"> updated 4 min ago </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mt-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="mb-0 ">Completed Tasks</h6>
+              <p class="text-sm ">Last Campaign Performance</p>
+              <div class="pe-2">
+                <div class="chart">
+                  <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
+                </div>
+              </div>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-symbols-rounded text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm">just updated</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Progress Tracking Graph -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <div class="card progress-graph-container">
+      <div class="row mb-4">
+        <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+          <div class="card">
             <div class="card-header pb-0">
               <div class="row">
-                <div class="col-6">
-                  <h6 class="text-white">Revenue Progress Tracking</h6>
-                  <p class="text-sm mb-0 text-white opacity-7">Monthly revenue growth and forecasting</p>
+                <div class="col-lg-6 col-7">
+                  <h6>Projects</h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1">30 done</span> this month
+                  </p>
                 </div>
-                <div class="col-6 text-end">
-                  <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                      Last 12 Months
-                    </button>
-                    <ul class="dropdown-menu" style="background: rgba(30, 30, 50, 0.95);">
-                      <li><a class="dropdown-item text-white" href="#">Last 6 Months</a></li>
-                      <li><a class="dropdown-item text-white" href="#">Last 12 Months</a></li>
-                      <li><a class="dropdown-item text-white" href="#">Year to Date</a></li>
+                <div class="col-lg-6 col-5 my-auto text-end">
+                  <div class="dropdown float-lg-end pe-4">
+                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-ellipsis-v text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="card-body">
-              <div id="revenueProgressChart" style="height: 400px;"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Comprehensive Lead Management Section -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <div class="feature-section">
-            <div class="feature-header">
-              <div class="feature-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div>
-                <h6 class="text-white mb-0">Advanced Lead Management</h6>
-                <p class="text-sm text-white opacity-7 mb-0">Complete lead lifecycle management with AI-powered insights
-                </p>
-              </div>
-              <div class="ms-auto">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprehensiveLeadModal">
-                  <i class="fas fa-plus me-2"></i>Add Lead
-                </button>
-              </div>
-            </div>
-
-            <!-- Lead Management Tabs -->
-            <ul class="nav nav-pills mb-3" id="leadManagementTabs" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="hot-leads-tab" data-bs-toggle="pill" data-bs-target="#hot-leads"
-                  type="button">
-                  Hot Leads (87-100)
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="warm-leads-tab" data-bs-toggle="pill" data-bs-target="#warm-leads"
-                  type="button">
-                  Warm Leads (50-86)
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="cold-leads-tab" data-bs-toggle="pill" data-bs-target="#cold-leads"
-                  type="button">
-                  Cold Leads (0-49)
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="nurture-campaigns-tab" data-bs-toggle="pill"
-                  data-bs-target="#nurture-campaigns" type="button">
-                  Nurture Campaigns
-                </button>
-              </li>
-            </ul>
-
-            <div class="tab-content" id="leadManagementTabContent">
-              <!-- Hot Leads Tab -->
-              <div class="tab-pane fade show active" id="hot-leads" role="tabpanel">
-                <div class="table-responsive">
-                  <table class="table crm-table">
-                    <thead>
-                      <tr>
-                        <th>Lead Information</th>
-                        <th>Company Details</th>
-                        <th>Lead Score</th>
-                        <th>Source & Attribution</th>
-                        <th>Engagement Score</th>
-                        <th>Last Activity</th>
-                        <th>Next Action</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody id="hotLeadsTable">
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <img src="../assets/img/team-1.jpg" class="avatar avatar-sm me-3" alt="lead">
-                            <div>
-                              <h6 class="mb-0 text-sm text-white">Alex Rodriguez</h6>
-                              <p class="text-xs text-secondary mb-0">alex.rodriguez@techcorp.com</p>
-                              <small class="text-xs text-success">LinkedIn: Premium</small>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Companies</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Members</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Budget</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Completion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Material XD Version</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
+                            <img src="../assets/img/team-1.jpg" alt="team1">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
+                            <img src="../assets/img/team-2.jpg" alt="team2">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
+                            <img src="../assets/img/team-3.jpg" alt="team3">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
+                            <img src="../assets/img/team-4.jpg" alt="team4">
+                          </a>
+                        </div>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> $14,000 </span>
+                      </td>
+                      <td class="align-middle">
+                        <div class="progress-wrapper w-75 mx-auto">
+                          <div class="progress-info">
+                            <div class="progress-percentage">
+                              <span class="text-xs font-weight-bold">60%</span>
                             </div>
                           </div>
-                        </td>
-                        <td>
-                          <div>
-                            <h6 class="text-sm text-white mb-0">TechCorp Solutions</h6>
-                            <p class="text-xs text-secondary mb-0">Technology • 500-1000 employees</p>
-                            <small class="text-xs text-info">$50M ARR • Series C</small>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-info w-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
-                        </td>
-                        <td>
-                          <div class="lead-score-container">
-                            <span class="lead-score-badge score-hot">94</span>
-                            <div class="ms-2">
-                              <div class="progress" style="height: 4px; width: 60px;">
-                                <div class="progress-bar bg-danger" style="width: 94%"></div>
-                              </div>
-                              <small class="text-xs text-white">BANT: A+</small>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="../assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Add Progress Track</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
+                            <img src="../assets/img/team-2.jpg" alt="team5">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
+                            <img src="../assets/img/team-4.jpg" alt="team6">
+                          </a>
+                        </div>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> $3,000 </span>
+                      </td>
+                      <td class="align-middle">
+                        <div class="progress-wrapper w-75 mx-auto">
+                          <div class="progress-info">
+                            <div class="progress-percentage">
+                              <span class="text-xs font-weight-bold">10%</span>
                             </div>
                           </div>
-                        </td>
-                        <td>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-info w-10" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
                           <div>
-                            <span class="badge bg-info">LinkedIn Ads</span>
-                            <p class="text-xs text-secondary mb-0 mt-1">Campaign: Enterprise SaaS</p>
-                            <small class="text-xs text-success">Multi-touch: 7 interactions</small>
+                            <img src="../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7">
                           </div>
-                        </td>
-                        <td>
-                          <div>
-                            <div class="progress" style="height: 6px;">
-                              <div class="progress-bar bg-success" style="width: 87%"></div>
-                            </div>
-                            <small class="text-xs text-white">87% engaged</small>
-                            <p class="text-xs text-secondary mb-0">5 page views, 3 downloads</p>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Fix Platform Errors</h6>
                           </div>
-                        </td>
-                        <td>
-                          <div>
-                            <p class="text-sm text-white mb-0">Demo request</p>
-                            <small class="text-xs text-secondary">2 hours ago</small>
-                            <p class="text-xs text-success mb-0">Intent signal: High</p>
-                          </div>
-                        </td>
-                        <td>
-                          <span class="badge bg-warning">Schedule Demo</span>
-                          <p class="text-xs text-secondary mb-0 mt-1">Priority: Urgent</p>
-                        </td>
-                        <td>
-                          <div class="dropdown">
-                            <button class="btn btn-sm btn-primary dropdown-toggle" type="button"
-                              data-bs-toggle="dropdown">
-                              Actions
-                            </button>
-                            <ul class="dropdown-menu" style="background: rgba(30, 30, 50, 0.95);">
-                              <li><a class="dropdown-item text-white" href="#"><i class="fas fa-phone me-2"></i>Call
-                                  Now</a></li>
-                              <li><a class="dropdown-item text-white" href="#"><i class="fas fa-envelope me-2"></i>Send
-                                  Email</a></li>
-                              <li><a class="dropdown-item text-white" href="#"><i
-                                    class="fas fa-calendar me-2"></i>Schedule Meeting</a></li>
-                              <li><a class="dropdown-item text-white" href="#"><i class="fas fa-share me-2"></i>Add to
-                                  Sequence</a></li>
-                            </ul>
-                          </div>
-                        </td>
-                      </tr>
-                      <!-- Add more hot leads here -->
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <!-- Warm Leads Tab -->
-              <div class="tab-pane fade" id="warm-leads" role="tabpanel">
-                <div class="table-responsive">
-                  <table class="table crm-table">
-                    <thead>
-                      <tr>
-                        <th>Lead Information</th>
-                        <th>Company Details</th>
-                        <th>Lead Score</th>
-                        <th>Nurture Stage</th>
-                        <th>Behavioral Signals</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="lead">
-                            <div>
-                              <h6 class="mb-0 text-sm text-white">Sarah Chen</h6>
-                              <p class="text-xs text-secondary mb-0">sarah.chen@innovatelab.com</p>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
+                            <img src="../assets/img/team-3.jpg" alt="team8">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
+                            <img src="../assets/img/team-1.jpg" alt="team9">
+                          </a>
+                        </div>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> Not set </span>
+                      </td>
+                      <td class="align-middle">
+                        <div class="progress-wrapper w-75 mx-auto">
+                          <div class="progress-info">
+                            <div class="progress-percentage">
+                              <span class="text-xs font-weight-bold">100%</span>
                             </div>
                           </div>
-                        </td>
-                        <td>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
                           <div>
-                            <h6 class="text-sm text-white mb-0">InnovateLab Inc</h6>
-                            <p class="text-xs text-secondary mb-0">Startup • 10-50 employees</p>
+                            <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm me-3" alt="spotify">
                           </div>
-                        </td>
-                        <td>
-                          <span class="lead-score-badge score-warm">72</span>
-                        </td>
-                        <td>
-                          <span class="badge bg-info">Educational Content</span>
-                          <p class="text-xs text-secondary mb-0 mt-1">Email 3 of 7</p>
-                        </td>
-                        <td>
-                          <p class="text-xs text-white mb-0">Opened 4 emails, 2 clicks</p>
-                          <small class="text-xs text-secondary">No recent website visits</small>
-                        </td>
-                        <td>
-                          <button class="btn btn-sm btn-outline-primary">Continue Nurture</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <!-- Cold Leads Tab -->
-              <div class="tab-pane fade" id="cold-leads" role="tabpanel">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="card" style="background: rgba(40, 40, 60, 0.5);">
-                      <div class="card-body">
-                        <h6 class="text-white">Re-engagement Campaign</h6>
-                        <p class="text-sm text-secondary">45 leads identified for re-activation</p>
-                        <button class="btn btn-primary btn-sm">Start Campaign</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card" style="background: rgba(40, 40, 60, 0.5);">
-                      <div class="card-body">
-                        <h6 class="text-white">Lead Cleanup</h6>
-                        <p class="text-sm text-secondary">128 leads pending review/archival</p>
-                        <button class="btn btn-outline-primary btn-sm">Review Leads</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Nurture Campaigns Tab -->
-              <div class="tab-pane fade" id="nurture-campaigns" role="tabpanel">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="card" style="background: rgba(40, 40, 60, 0.8);">
-                      <div class="card-body">
-                        <h6 class="text-white">Welcome Series</h6>
-                        <p class="text-sm text-secondary">5-email sequence for new leads</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                          <span class="text-sm text-white">Active: 234 leads</span>
-                          <span class="badge bg-success">28% open rate</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card" style="background: rgba(40, 40, 60, 0.8);">
-                      <div class="card-body">
-                        <h6 class="text-white">Product Education</h6>
-                        <p class="text-sm text-secondary">Feature-focused content series</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                          <span class="text-sm text-white">Active: 156 leads</span>
-                          <span class="badge bg-info">35% click rate</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card" style="background: rgba(40, 40, 60, 0.8);">
-                      <div class="card-body">
-                        <h6 class="text-white">Re-engagement</h6>
-                        <p class="text-sm text-secondary">Win-back dormant leads</p>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                          <span class="text-sm text-white">Active: 89 leads</span>
-                          <span class="badge bg-warning">18% reactivation</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Enhanced Interactive Pipeline -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <div class="feature-section">
-            <div class="feature-header">
-              <div class="feature-icon">
-                <i class="fas fa-chart-line"></i>
-              </div>
-              <div>
-                <h6 class="text-white mb-0">Intelligent Sales Pipeline</h6>
-                <p class="text-sm text-white opacity-7 mb-0">AI-powered deal progression with predictive insights</p>
-              </div>
-              <div class="ms-auto d-flex gap-2">
-                <button class="btn btn-outline-primary btn-sm" onclick="togglePipelineView()">
-                  <i class="fas fa-th-large me-1"></i>Board View
-                </button>
-                <button class="btn btn-primary btn-sm" onclick="addNewDeal()">
-                  <i class="fas fa-plus me-1"></i>New Deal
-                </button>
-              </div>
-            </div>
-
-            <div class="row">
-              <!-- Pipeline Stages with Enhanced Features -->
-              <div class="col-md-2">
-                <div class="pipeline-stage" data-stage="prospecting">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="text-white font-weight-bold mb-0">Prospecting</h6>
-                    <span class="badge bg-primary">18</span>
-                  </div>
-                  <div class="d-flex justify-content-between text-sm mb-3">
-                    <span class="text-white opacity-8">$347,500</span>
-                    <span class="text-success">+12%</span>
-                  </div>
-                  <div class="leads-container" id="prospecting-leads">
-                    <!-- Enhanced Lead Cards -->
-                    <div class="lead-card" draggable="true" data-lead-id="1" data-value="25000">
-                      <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                          <h6 class="text-sm font-weight-bold text-white mb-1">Enterprise Solutions Co.</h6>
-                          <p class="text-xs text-secondary mb-0">John Smith • CTO</p>
-                          <small class="text-xs text-info">Technology • 1000+ employees</small>
-                        </div>
-                        <div class="text-end">
-                          <span class="lead-score-badge score-hot">91</span>
-                        </div>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-sm text-white font-weight-bold">$25,000</span>
-                        <div class="d-flex align-items-center">
-                          <span class="text-xs text-success me-2">
-                            <i class="fas fa-chart-line me-1"></i>7% prob.
-                          </span>
-                          <div class="dropdown">
-                            <button class="btn btn-sm btn-outline-primary dropdown-toggle p-1" type="button"
-                              data-bs-toggle="dropdown">
-                              <i class="fas fa-ellipsis-v"></i>
-                            </button>
-                            <ul class="dropdown-menu" style="background: rgba(30, 30, 50, 0.95);">
-                              <li><a class="dropdown-item text-white" href="#"><i class="fas fa-eye me-2"></i>View
-                                  Details</a></li>
-                              <li><a class="dropdown-item text-white" href="#"><i class="fas fa-edit me-2"></i>Edit</a>
-                              </li>
-                              <li><a class="dropdown-item text-white" href="#"><i
-                                    class="fas fa-calendar me-2"></i>Schedule Activity</a></li>
-                            </ul>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Launch our Mobile App</h6>
                           </div>
                         </div>
-                      </div>
-                      <div class="mt-2">
-                        <div class="progress" style="height: 3px;">
-                          <div class="progress-bar bg-gradient-primary" style="width: 15%"></div>
+                      </td>
+                      <td>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
+                            <img src="../assets/img/team-4.jpg" alt="user1">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
+                            <img src="../assets/img/team-3.jpg" alt="user2">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
+                            <img src="../assets/img/team-4.jpg" alt="user3">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
+                            <img src="../assets/img/team-1.jpg" alt="user4">
+                          </a>
                         </div>
-                        <small class="text-xs text-secondary">Next: Discovery call</small>
-                      </div>
-                    </div>
-
-                    <div class="lead-card" draggable="true" data-lead-id="2" data-value="15000">
-                      <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                          <h6 class="text-sm font-weight-bold text-white mb-1">Growth Startup Inc.</h6>
-                          <p class="text-xs text-secondary mb-0">Sarah Johnson • Founder</p>
-                          <small class="text-xs text-warning">Startup • 10-50 employees</small>
-                        </div>
-                        <div class="text-end">
-                          <span class="lead-score-badge score-warm">68</span>
-                        </div>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-sm text-white font-weight-bold">$15,000</span>
-                        <div class="d-flex align-items-center">
-                          <span class="text-xs text-info me-2">
-                            <i class="fas fa-clock me-1"></i>5 days
-                          </span>
-                          <div class="dropdown">
-                            <button class="btn btn-sm btn-outline-primary dropdown-toggle p-1" type="button"
-                              data-bs-toggle="dropdown">
-                              <i class="fas fa-ellipsis-v"></i>
-                            </button>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> $20,500 </span>
+                      </td>
+                      <td class="align-middle">
+                        <div class="progress-wrapper w-75 mx-auto">
+                          <div class="progress-info">
+                            <div class="progress-percentage">
+                              <span class="text-xs font-weight-bold">100%</span>
+                            </div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-success w-100" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
-                      </div>
-                    </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="../assets/img/small-logos/logo-jira.svg" class="avatar avatar-sm me-3" alt="jira">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Add the New Pricing Page</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
+                            <img src="../assets/img/team-4.jpg" alt="user5">
+                          </a>
+                        </div>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> $500 </span>
+                      </td>
+                      <td class="align-middle">
+                        <div class="progress-wrapper w-75 mx-auto">
+                          <div class="progress-info">
+                            <div class="progress-percentage">
+                              <span class="text-xs font-weight-bold">25%</span>
+                            </div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="25"></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="../assets/img/small-logos/logo-invision.svg" class="avatar avatar-sm me-3" alt="invision">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm">Redesign New Online Shop</h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="avatar-group mt-2">
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
+                            <img src="../assets/img/team-1.jpg" alt="user6">
+                          </a>
+                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
+                            <img src="../assets/img/team-4.jpg" alt="user7">
+                          </a>
+                        </div>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> $2,000 </span>
+                      </td>
+                      <td class="align-middle">
+                        <div class="progress-wrapper w-75 mx-auto">
+                          <div class="progress-info">
+                            <div class="progress-percentage">
+                              <span class="text-xs font-weight-bold">40%</span>
+                            </div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar bg-gradient-info w-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100">
+            <div class="card-header pb-0">
+              <h6>Orders overview</h6>
+              <p class="text-sm">
+                <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
+                <span class="font-weight-bold">24%</span> this month
+              </p>
+            </div>
+            <div class="card-body p-3">
+              <div class="timeline timeline-one-side">
+                <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    <i class="material-symbols-rounded text-success text-gradient">notifications</i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">$2400, Design changes</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">22 DEC 7:20 PM</p>
                   </div>
                 </div>
-              </div>
-
-              <div class="col-md-2">
-                <div class="pipeline-stage" data-stage="qualification">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="text-white font-weight-bold mb-0">Qualification</h6>
-                    <span class="badge bg-warning">12</span>
-                  </div>
-                  <div class="d-flex justify-content-between text-sm mb-3">
-                    <span class="text-white opacity-8">$468,200</span>
-                    <span class="text-success">+8%</span>
-                  </div>
-                  <div class="leads-container" id="qualification-leads">
-                    <div class="lead-card" draggable="true" data-lead-id="3">
-                      <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                          <h6 class="text-sm font-weight-bold text-white mb-1">MegaCorp International</h6>
-                          <p class="text-xs text-secondary mb-0">David Wilson • VP Sales</p>
-                          <small class="text-xs text-success">Enterprise • 5000+ employees</small>
-                        </div>
-                        <span class="lead-score-badge score-hot">89</span>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-sm text-white font-weight-bold">$45,000</span>
-                        <span class="text-xs text-warning">25% prob.</span>
-                      </div>
-                    </div>
+                <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    <i class="material-symbols-rounded text-danger text-gradient">code</i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">New order #1832412</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 11 PM</p>
                   </div>
                 </div>
-              </div>
-
-              <div class="col-md-2">
-                <div class="pipeline-stage" data-stage="demo">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="text-white font-weight-bold mb-0">Demo Scheduled</h6>
-                    <span class="badge bg-info">8</span>
-                  </div>
-                  <div class="d-flex justify-content-between text-sm mb-3">
-                    <span class="text-white opacity-8">$234,800</span>
-                    <span class="text-success">+15%</span>
-                  </div>
-                  <div class="leads-container" id="demo-leads">
-                    <div class="lead-card" draggable="true" data-lead-id="4">
-                      <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                          <h6 class="text-sm font-weight-bold text-white mb-1">InnovateTech Solutions</h6>
-                          <p class="text-xs text-secondary mb-0">Lisa Garcia • CRO</p>
-                        </div>
-                        <span class="lead-score-badge score-hot">94</span>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-sm text-white font-weight-bold">$32,000</span>
-                        <span class="text-xs text-info">50% prob.</span>
-                      </div>
-                    </div>
+                <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    <i class="material-symbols-rounded text-info text-gradient">shopping_cart</i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Server payments for April</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 9:34 PM</p>
                   </div>
                 </div>
-              </div>
-
-              <div class="col-md-2">
-                <div class="pipeline-stage" data-stage="proposal">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="text-white font-weight-bold mb-0">Proposal Sent</h6>
-                    <span class="badge bg-success">5</span>
-                  </div>
-                  <div class="d-flex justify-content-between text-sm mb-3">
-                    <span class="text-white opacity-8">$187,500</span>
-                    <span class="text-success">+22%</span>
-                  </div>
-                  <div class="leads-container" id="proposal-leads">
-                    <div class="lead-card" draggable="true" data-lead-id="5">
-                      <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                          <h6 class="text-sm font-weight-bold text-white mb-1">DataFlow Analytics</h6>
-                          <p class="text-xs text-secondary mb-0">Michael Brown • CEO</p>
-                        </div>
-                        <span class="lead-score-badge score-hot">87</span>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-sm text-white font-weight-bold">$28,500</span>
-                        <span class="text-xs text-warning">75% prob.</span>
-                      </div>
-                    </div>
+                <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    <i class="material-symbols-rounded text-warning text-gradient">credit_card</i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">New card added for order #4395133</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">20 DEC 2:20 AM</p>
                   </div>
                 </div>
-              </div>
-
-              <div class="col-md-2">
-                <div class="pipeline-stage" data-stage="negotiation">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="text-white font-weight-bold mb-0">Negotiation</h6>
-                    <span class="badge bg-warning">3</span>
-                  </div>
-                  <div class="d-flex justify-content-between text-sm mb-3">
-                    <span class="text-white opacity-8">$156,000</span>
-                    <span class="text-success">+5%</span>
-                  </div>
-                  <div class="leads-container" id="negotiation-leads">
-                    <div class="lead-card" draggable="true" data-lead-id="6">
-                      <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                          <h6 class="text-sm font-weight-bold text-white mb-1">Global Systems Ltd</h6>
-                          <p class="text-xs text-secondary mb-0">Rachel Kim • Director</p>
-                        </div>
-                        <span class="lead-score-badge score-hot">92</span>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-sm text-white font-weight-bold">$67,000</span>
-                        <span class="text-xs text-success">85% prob.</span>
-                      </div>
-                    </div>
+                <div class="timeline-block mb-3">
+                  <span class="timeline-step">
+                    <i class="material-symbols-rounded text-primary text-gradient">key</i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">Unlock packages for development</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">18 DEC 4:54 AM</p>
                   </div>
                 </div>
-              </div>
-
-              <div class="col-md-2">
-                <div class="pipeline-stage" data-stage="closed-won">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="text-white font-weight-bold mb-0">Closed Won</h6>
-                    <span class="badge bg-success">7</span>
-                  </div>
-                  <div class="d-flex justify-content-between text-sm mb-3">
-                    <span class="text-white opacity-8">$234,700</span>
-                    <span class="text-success">+18%</span>
-                  </div>
-                  <div class="leads-container" id="closed-won-leads">
-                    <div class="lead-card" style="border: 2px solid #28a745;">
-                      <div class="d-flex justify-content-between align-items-start mb-2">
-                        <div>
-                          <h6 class="text-sm font-weight-bold text-white mb-1">Success Enterprise</h6>
-                          <p class="text-xs text-secondary mb-0">Tom Anderson • VP</p>
-                        </div>
-                        <span class="badge bg-success">Won</span>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <span class="text-sm text-white font-weight-bold">$45,200</span>
-                        <small class="text-xs text-success">Closed: 2 days ago</small>
-                      </div>
-                    </div>
+                <div class="timeline-block">
+                  <span class="timeline-step">
+                    <i class="material-symbols-rounded text-dark text-gradient">payments</i>
+                  </span>
+                  <div class="timeline-content">
+                    <h6 class="text-dark text-sm font-weight-bold mb-0">New order #9583120</h6>
+                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">17 DEC</p>
                   </div>
                 </div>
               </div>
@@ -1258,573 +721,32 @@
           </div>
         </div>
       </div>
-
-      <!-- Advanced Analytics & Data Enrichment -->
-      <div class="row mt-4">
-        <div class="col-lg-8">
-          <div class="feature-section">
-            <div class="feature-header">
-              <div class="feature-icon">
-                <i class="fas fa-chart-bar"></i>
-              </div>
-              <div>
-                <h6 class="text-white mb-0">Advanced Lead Analytics</h6>
-                <p class="text-sm text-white opacity-7 mb-0">Multi-dimensional lead scoring and behavior analysis</p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <h6 class="text-white mb-3">Lead Score Distribution</h6>
-                    <canvas id="leadScoreDistributionChart" height="200"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <h6 class="text-white mb-3">Attribution Analysis</h6>
-                    <canvas id="attributionChart" height="200"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row mt-3">
-              <div class="col-12">
-                <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <h6 class="text-white mb-3">Lead Source Performance Matrix</h6>
-                    <div class="table-responsive">
-                      <table class="table crm-table">
-                        <thead>
-                          <tr>
-                            <th>Source</th>
-                            <th>Total Leads</th>
-                            <th>MQL Rate</th>
-                            <th>SQL Rate</th>
-                            <th>Conversion Rate</th>
-                            <th>Avg. Deal Size</th>
-                            <th>Customer LTV</th>
-                            <th>ROI</th>
-                            <th>Cost Per Lead</th>
-                            <th>Cost Per Customer</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div class="d-flex align-items-center">
-                                <i class="fab fa-linkedin text-info me-2"></i>
-                                <span class="text-white">LinkedIn Ads</span>
-                              </div>
-                            </td>
-                            <td class="text-white">1,247</td>
-                            <td><span class="badge bg-success">34.5%</span></td>
-                            <td><span class="badge bg-success">28.7%</span></td>
-                            <td><span class="badge bg-warning">12.3%</span></td>
-                            <td class="text-white">$28,450</td>
-                            <td class="text-white">$127,890</td>
-                            <td><span class="badge bg-success">340%</span></td>
-                            <td class="text-white">$47</td>
-                            <td class="text-white">$382</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="d-flex align-items-center">
-                                <i class="fab fa-google text-warning me-2"></i>
-                                <span class="text-white">Google Ads</span>
-                              </div>
-                            </td>
-                            <td class="text-white">892</td>
-                            <td><span class="badge bg-success">38.2%</span></td>
-                            <td><span class="badge bg-success">31.4%</span></td>
-                            <td><span class="badge bg-success">15.7%</span></td>
-                            <td class="text-white">$32,100</td>
-                            <td class="text-white">$145,670</td>
-                            <td><span class="badge bg-success">425%</span></td>
-                            <td class="text-white">$52</td>
-                            <td class="text-white">$331</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="d-flex align-items-center">
-                                <i class="fas fa-envelope text-success me-2"></i>
-                                <span class="text-white">Cold Email</span>
-                              </div>
-                            </td>
-                            <td class="text-white">2,156</td>
-                            <td><span class="badge bg-warning">18.9%</span></td>
-                            <td><span class="badge bg-warning">14.2%</span></td>
-                            <td><span class="badge bg-warning">8.5%</span></td>
-                            <td class="text-white">$19,800</td>
-                            <td class="text-white">$89,450</td>
-                            <td><span class="badge bg-success">680%</span></td>
-                            <td class="text-white">$12</td>
-                            <td class="text-white">$141</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="feature-section">
-            <div class="feature-header">
-              <div class="feature-icon">
-                <i class="fas fa-robot"></i>
-              </div>
-              <div>
-                <h6 class="text-white mb-0">AI-Powered Insights</h6>
-                <p class="text-sm text-white opacity-7 mb-0">Machine learning recommendations</p>
-              </div>
-            </div>
-
-            <div class="card mb-3" style="background: rgba(40, 40, 60, 0.6);">
-              <div class="card-body">
-                <h6 class="text-warning mb-2">
-                  <i class="fas fa-exclamation-triangle me-2"></i>Deal Risk Alert
-                </h6>
-                <p class="text-sm text-white">3 deals at risk of stalling</p>
-                <button class="btn btn-warning btn-sm">View Details</button>
-              </div>
-            </div>
-
-            <div class="card mb-3" style="background: rgba(40, 40, 60, 0.6);">
-              <div class="card-body">
-                <h6 class="text-success mb-2">
-                  <i class="fas fa-chart-line me-2"></i>Expansion Opportunity
-                </h6>
-                <p class="text-sm text-white">TechCorp showing high usage - ready for upsell</p>
-                <button class="btn btn-success btn-sm">Create Opportunity</button>
-              </div>
-            </div>
-
-            <div class="card mb-3" style="background: rgba(40, 40, 60, 0.6);">
-              <div class="card-body">
-                <h6 class="text-info mb-2">
-                  <i class="fas fa-lightbulb me-2"></i>Optimization Suggestion
-                </h6>
-                <p class="text-sm text-white">LinkedIn campaigns performing 23% above average</p>
-                <button class="btn btn-info btn-sm">Increase Budget</button>
-              </div>
-            </div>
-
-            <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-              <div class="card-body">
-                <h6 class="text-primary mb-2">
-                  <i class="fas fa-target me-2"></i>Lead Scoring Model
-                </h6>
-                <p class="text-sm text-white">Current model accuracy: 87%</p>
-                <small class="text-xs text-secondary">Last trained: 2 days ago</small>
-                <button class="btn btn-primary btn-sm mt-2">Retrain Model</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social CRM & Data Enrichment -->
-      <div class="row mt-4">
-        <div class="col-lg-6">
-          <div class="feature-section">
-            <div class="feature-header">
-              <div class="feature-icon">
-                <i class="fas fa-share-alt"></i>
-              </div>
-              <div>
-                <h6 class="text-white mb-0">Social CRM Intelligence</h6>
-                <p class="text-sm text-white opacity-7 mb-0">Social media monitoring and engagement tracking</p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card mb-3" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                      <i class="fab fa-linkedin text-info me-3" style="font-size: 24px;"></i>
-                      <div>
-                        <h6 class="text-white mb-0">LinkedIn Activity</h6>
-                        <small class="text-secondary">Real-time monitoring</small>
-                      </div>
-                    </div>
-                    <p class="text-sm text-white mb-2">15 prospects engaged with your content</p>
-                    <p class="text-sm text-success mb-0">3 high-value leads identified</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="card mb-3" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                      <i class="fab fa-twitter text-info me-3" style="font-size: 24px;"></i>
-                      <div>
-                        <h6 class="text-white mb-0">Twitter Mentions</h6>
-                        <small class="text-secondary">Brand monitoring</small>
-                      </div>
-                    </div>
-                    <p class="text-sm text-white mb-2">8 brand mentions today</p>
-                    <p class="text-sm text-warning mb-0">2 require immediate response</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-              <div class="card-body">
-                <h6 class="text-white mb-3">Social Engagement Timeline</h6>
-                <div class="activity-timeline">
-                  <div class="activity-item">
-                    <div class="d-flex">
-                      <i class="fab fa-linkedin text-info me-3"></i>
-                      <div>
-                        <p class="text-sm text-white mb-1"><strong>Sarah Chen</strong> liked your LinkedIn post</p>
-                        <small class="text-xs text-secondary">15 minutes ago • High-value prospect</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="activity-item">
-                    <div class="d-flex">
-                      <i class="fab fa-twitter text-info me-3"></i>
-                      <div>
-                        <p class="text-sm text-white mb-1"><strong>TechCorp</strong> mentioned your solution</p>
-                        <small class="text-xs text-secondary">2 hours ago • Existing customer referral</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="feature-section">
-            <div class="feature-header">
-              <div class="feature-icon">
-                <i class="fas fa-database"></i>
-              </div>
-              <div>
-                <h6 class="text-white mb-0">Data Enrichment Hub</h6>
-                <p class="text-sm text-white opacity-7 mb-0">Automated contact and company data enhancement</p>
-              </div>
-            </div>
-
-            <div class="card mb-3" style="background: rgba(40, 40, 60, 0.6);">
-              <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h6 class="text-white mb-0">Data Quality Score</h6>
-                  <span class="badge bg-success">92%</span>
-                </div>
-                <div class="progress mb-2" style="height: 8px;">
-                  <div class="progress-bar bg-success" style="width: 92%"></div>
-                </div>
-                <div class="row text-center">
-                  <div class="col-4">
-                    <p class="text-sm text-white mb-0">Complete</p>
-                    <h6 class="text-success mb-0">2,347</h6>
-                  </div>
-                  <div class="col-4">
-                    <p class="text-sm text-white mb-0">Partial</p>
-                    <h6 class="text-warning mb-0">156</h6>
-                  </div>
-                  <div class="col-4">
-                    <p class="text-sm text-white mb-0">Missing</p>
-                    <h6 class="text-danger mb-0">47</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-              <div class="card-body">
-                <h6 class="text-white mb-3">Enrichment Sources</h6>
-                <div class="table-responsive">
-                  <table class="table table-sm">
-                    <tbody>
-                      <tr>
-                        <td class="text-white">ZoomInfo</td>
-                        <td><span class="badge bg-success">Active</span></td>
-                        <td class="text-end text-white">1,247 records</td>
-                      </tr>
-                      <tr>
-                        <td class="text-white">Clearbit</td>
-                        <td><span class="badge bg-success">Active</span></td>
-                        <td class="text-end text-white">892 records</td>
-                      </tr>
-                      <tr>
-                        <td class="text-white">Apollo</td>
-                        <td><span class="badge bg-warning">Limited</span></td>
-                        <td class="text-end text-white">234 records</td>
-                      </tr>
-                      <tr>
-                        <td class="text-white">Lead411</td>
-                        <td><span class="badge bg-info">Connected</span></td>
-                        <td class="text-end text-white">567 records</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <button class="btn btn-primary btn-sm mt-2">Configure Sources</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Marketing Automation & Email Sequences -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <div class="feature-section">
-            <div class="feature-header">
-              <div class="feature-icon">
-                <i class="fas fa-cogs"></i>
-              </div>
-              <div>
-                <h6 class="text-white mb-0">Marketing Automation & Email Sequences</h6>
-                <p class="text-sm text-white opacity-7 mb-0">Intelligent nurturing campaigns with behavioral triggers
-                </p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-8">
-                <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <h6 class="text-white mb-3">Active Email Sequences</h6>
-                    <div class="table-responsive">
-                      <table class="table crm-table">
-                        <thead>
-                          <tr>
-                            <th>Sequence Name</th>
-                            <th>Type</th>
-                            <th>Active Leads</th>
-                            <th>Open Rate</th>
-                            <th>Click Rate</th>
-                            <th>Conversion Rate</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="text-white">Welcome Series - New Leads</td>
-                            <td><span class="badge bg-info">Onboarding</span></td>
-                            <td class="text-white">234 leads</td>
-                            <td><span class="badge bg-success">32.5%</span></td>
-                            <td><span class="badge bg-success">12.8%</span></td>
-                            <td><span class="badge bg-warning">4.2%</span></td>
-                            <td><span class="badge bg-success">Active</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary">Edit</button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-white">Product Demo Follow-up</td>
-                            <td><span class="badge bg-warning">Nurturing</span></td>
-                            <td class="text-white">89 leads</td>
-                            <td><span class="badge bg-success">45.7%</span></td>
-                            <td><span class="badge bg-success">18.3%</span></td>
-                            <td><span class="badge bg-success">8.9%</span></td>
-                            <td><span class="badge bg-success">Active</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary">Edit</button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-white">Re-engagement Campaign</td>
-                            <td><span class="badge bg-danger">Reactivation</span></td>
-                            <td class="text-white">156 leads</td>
-                            <td><span class="badge bg-warning">18.9%</span></td>
-                            <td><span class="badge bg-warning">6.4%</span></td>
-                            <td><span class="badge bg-warning">2.1%</span></td>
-                            <td><span class="badge bg-success">Active</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary">Edit</button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="text-white">Industry-Specific: Healthcare</td>
-                            <td><span class="badge bg-primary">Vertical</span></td>
-                            <td class="text-white">67 leads</td>
-                            <td><span class="badge bg-success">38.2%</span></td>
-                            <td><span class="badge bg-success">15.7%</span></td>
-                            <td><span class="badge bg-success">6.8%</span></td>
-                            <td><span class="badge bg-success">Active</span></td>
-                            <td>
-                              <button class="btn btn-sm btn-outline-primary">Edit</button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4">
-                <div class="card mb-3" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body text-center">
-                    <h6 class="text-white mb-3">Automation Performance</h6>
-                    <canvas id="automationPerformanceChart" height="150"></canvas>
-                  </div>
-                </div>
-
-                <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <h6 class="text-white mb-3">Quick Actions</h6>
-                    <button class="btn btn-primary btn-sm w-100 mb-2">
-                      <i class="fas fa-plus me-2"></i>Create New Sequence
-                    </button>
-                    <button class="btn btn-outline-primary btn-sm w-100 mb-2">
-                      <i class="fas fa-cog me-2"></i>Automation Rules
-                    </button>
-                    <button class="btn btn-outline-primary btn-sm w-100">
-                      <i class="fas fa-chart-line me-2"></i>Performance Report
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Team Performance & Collaboration -->
-      <div class="row mt-4">
-        <div class="col-12">
-          <div class="feature-section">
-            <div class="feature-header">
-              <div class="feature-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <div>
-                <h6 class="text-white mb-0">Team Performance & Collaboration</h6>
-                <p class="text-sm text-white opacity-7 mb-0">Individual and team analytics with coaching insights</p>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-8">
-                <div class="card" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <h6 class="text-white mb-3">Sales Rep Performance Dashboard</h6>
-                    <canvas id="teamPerformanceChart" height="300"></canvas>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4">
-                <div class="card h-100" style="background: rgba(40, 40, 60, 0.6);">
-                  <div class="card-body">
-                    <h6 class="text-white mb-3">Team Leaderboard</h6>
-                    <div class="table-responsive">
-                      <table class="table table-sm">
-                        <thead>
-                          <tr>
-                            <th class="text-white">Rep</th>
-                            <th class="text-white">Deals</th>
-                            <th class="text-white">Revenue</th>
-                            <th class="text-white">Quota</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div class="d-flex align-items-center">
-                                <img src="../assets/img/team-1.jpg" class="avatar avatar-xs me-2" alt="rep">
-                                <span class="text-white text-sm">John D.</span>
-                              </div>
-                            </td>
-                            <td class="text-white">23</td>
-                            <td class="text-white">$127K</td>
-                            <td><span class="badge bg-success">134%</span></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="d-flex align-items-center">
-                                <img src="../assets/img/team-2.jpg" class="avatar avatar-xs me-2" alt="rep">
-                                <span class="text-white text-sm">Sarah M.</span>
-                              </div>
-                            </td>
-                            <td class="text-white">18</td>
-                            <td class="text-white">$98K</td>
-                            <td><span class="badge bg-success">118%</span></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div class="d-flex align-items-center">
-                                <img src="../assets/img/team-3.jpg" class="avatar avatar-xs me-2" alt="rep">
-                                <span class="text-white text-sm">Mike J.</span>
-                              </div>
-                            </td>
-                            <td class="text-white">15</td>
-                            <td class="text-white">$89K</td>
-                            <td><span class="badge bg-warning">89%</span></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-
-                    <hr class="horizontal light">
-
-                    <h6 class="text-white mb-3">Team Activities</h6>
-                    <div class="activity-timeline">
-                      <div class="activity-item">
-                        <small class="text-xs text-secondary">2 min ago</small>
-                        <p class="text-sm text-white mb-0">John closed $25K deal with TechCorp</p>
-                      </div>
-                      <div class="activity-item">
-                        <small class="text-xs text-secondary">15 min ago</small>
-                        <p class="text-sm text-white mb-0">Sarah scheduled demo with StartupXYZ</p>
-                      </div>
-                      <div class="activity-item">
-                        <small class="text-xs text-secondary">1 hour ago</small>
-                        <p class="text-sm text-white mb-0">Mike added 5 new leads to pipeline</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Footer -->
-      <footer class="footer pt-3">
+      <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
-              <div class="copyright text-center text-sm text-white text-lg-start">
-                ©
-                <script>document.write(new Date().getFullYear())</script>,
-                crafted with <i class="fa fa-heart text-danger"></i> by
-                <a href="#" class="font-weight-bold text-white" target="_blank">LeadXcel Team</a>
-                for advanced B2B lead generation.
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made with <i class="fa fa-heart"></i> by
+                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+                for a better web.
               </div>
             </div>
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-white" target="_blank">LeadXcel</a>
+                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-white" target="_blank">Documentation</a>
+                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-white" target="_blank">API</a>
+                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link pe-0 text-white" target="_blank">Support</a>
+                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
                 </li>
               </ul>
             </div>
@@ -1833,863 +755,332 @@
       </footer>
     </div>
   </main>
-
-  <!-- Comprehensive Lead Modal -->
-  <div class="modal fade" id="comprehensiveLeadModal" tabindex="-1" aria-labelledby="comprehensiveLeadModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content"
-        style="background: rgba(30, 30, 50, 0.95); border: 1px solid rgba(255, 255, 255, 0.1);">
-        <div class="modal-header" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-          <h5 class="modal-title text-white" id="comprehensiveLeadModalLabel">Add New Lead - Complete Profile</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="fixed-plugin">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+      <i class="material-symbols-rounded py-2">settings</i>
+    </a>
+    <div class="card shadow-lg">
+      <div class="card-header pb-0 pt-3">
+        <div class="float-start">
+          <h5 class="mt-3 mb-0">Material UI Configurator</h5>
+          <p>See our dashboard options.</p>
         </div>
-        <div class="modal-body">
-          <form id="comprehensiveLeadForm">
-            <!-- Contact Information -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <h6 class="text-white mb-3">
-                  <i class="fas fa-user me-2"></i>Contact Information
-                </h6>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">First Name *</label>
-                  <input class="form-control" type="text" id="firstName" required>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Last Name *</label>
-                  <input class="form-control" type="text" id="lastName" required>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Job Title</label>
-                  <input class="form-control" type="text" id="jobTitle" placeholder="e.g., VP of Sales">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Email Address *</label>
-                  <input class="form-control" type="email" id="emailAddress" required>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Phone Number</label>
-                  <input class="form-control" type="tel" id="phoneNumber">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">LinkedIn Profile</label>
-                  <input class="form-control" type="url" id="linkedinProfile">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Time Zone</label>
-                  <select class="form-control" id="timeZone">
-                    <option value="">Select Time Zone</option>
-                    <option value="EST">EST - Eastern Standard Time</option>
-                    <option value="CST">CST - Central Standard Time</option>
-                    <option value="MST">MST - Mountain Standard Time</option>
-                    <option value="PST">PST - Pacific Standard Time</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Company Information -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <h6 class="text-white mb-3">
-                  <i class="fas fa-building me-2"></i>Company Information
-                </h6>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Company Name *</label>
-                  <input class="form-control" type="text" id="companyName" required>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Industry</label>
-                  <select class="form-control" id="industry">
-                    <option value="">Select Industry</option>
-                    <option value="technology">Technology</option>
-                    <option value="healthcare">Healthcare</option>
-                    <option value="finance">Financial Services</option>
-                    <option value="manufacturing">Manufacturing</option>
-                    <option value="retail">Retail</option>
-                    <option value="education">Education</option>
-                    <option value="government">Government</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Company Size</label>
-                  <select class="form-control" id="companySize">
-                    <option value="">Select Size</option>
-                    <option value="1-10">1-10 employees</option>
-                    <option value="11-50">11-50 employees</option>
-                    <option value="51-200">51-200 employees</option>
-                    <option value="201-1000">201-1000 employees</option>
-                    <option value="1001-5000">1001-5000 employees</option>
-                    <option value="5000+">5000+ employees</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Annual Revenue</label>
-                  <select class="form-control" id="annualRevenue">
-                    <option value="">Select Revenue</option>
-                    <option value="<1M">Less than $1M</option>
-                    <option value="1M-10M">$1M - $10M</option>
-                    <option value="10M-100M">$10M - $100M</option>
-                    <option value="100M-1B">$100M - $1B</option>
-                    <option value=">1B">More than $1B</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Company Website</label>
-                  <input class="form-control" type="url" id="companyWebsite">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Technology Stack</label>
-                  <input class="form-control" type="text" id="techStack" placeholder="e.g., Salesforce, HubSpot, AWS">
-                </div>
-              </div>
-            </div>
-
-            <!-- Lead Qualification -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <h6 class="text-white mb-3">
-                  <i class="fas fa-bullseye me-2"></i>Lead Qualification & Scoring
-                </h6>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Lead Source *</label>
-                  <select class="form-control" id="leadSource" required>
-                    <option value="">Select Source</option>
-                    <option value="linkedin-ads">LinkedIn Ads</option>
-                    <option value="google-ads">Google Ads</option>
-                    <option value="cold-email">Cold Email</option>
-                    <option value="referral">Referral</option>
-                    <option value="website">Website</option>
-                    <option value="webinar">Webinar</option>
-                    <option value="trade-show">Trade Show</option>
-                    <option value="content-download">Content Download</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Campaign</label>
-                  <input class="form-control" type="text" id="campaign" placeholder="Specific campaign name">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Lead Status</label>
-                  <select class="form-control" id="leadStatus">
-                    <option value="new">New Lead</option>
-                    <option value="contacted">Contacted</option>
-                    <option value="qualified">Qualified</option>
-                    <option value="unqualified">Unqualified</option>
-                    <option value="nurturing">In Nurturing</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Budget Range</label>
-                  <select class="form-control" id="budget">
-                    <option value="">Unknown</option>
-                    <option value="<10K">Less than $10K</option>
-                    <option value="10K-50K">$10K - $50K</option>
-                    <option value="50K-100K">$50K - $100K</option>
-                    <option value=">100K">More than $100K</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Authority Level</label>
-                  <select class="form-control" id="authority">
-                    <option value="">Unknown</option>
-                    <option value="decision-maker">Decision Maker</option>
-                    <option value="influencer">Influencer</option>
-                    <option value="user">End User</option>
-                    <option value="gatekeeper">Gatekeeper</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Need Urgency</label>
-                  <select class="form-control" id="urgency">
-                    <option value="">Unknown</option>
-                    <option value="immediate">Immediate (0-30 days)</option>
-                    <option value="short-term">Short-term (1-3 months)</option>
-                    <option value="long-term">Long-term (3+ months)</option>
-                    <option value="no-timeline">No Timeline</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Pain Point Level</label>
-                  <select class="form-control" id="painPoint">
-                    <option value="">Unknown</option>
-                    <option value="critical">Critical</option>
-                    <option value="moderate">Moderate</option>
-                    <option value="low">Low</option>
-                    <option value="none">None Identified</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Additional Details -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <h6 class="text-white mb-3">
-                  <i class="fas fa-info-circle me-2"></i>Additional Details
-                </h6>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Current Solution</label>
-                  <input class="form-control" type="text" id="currentSolution" placeholder="Competitor or current tool">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">How They Found Us</label>
-                  <input class="form-control" type="text" id="howFoundUs">
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Notes</label>
-                  <textarea class="form-control" rows="4" id="leadNotes"
-                    placeholder="Additional information, conversation notes, specific requirements..."></textarea>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Assigned Sales Rep</label>
-                  <select class="form-control" id="assignedRep">
-                    <option value="">Auto-assign</option>
-                    <option value="john-doe">John Doe</option>
-                    <option value="sarah-smith">Sarah Smith</option>
-                    <option value="mike-johnson">Mike Johnson</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-control-label text-white">Next Follow-up Date</label>
-                  <input class="form-control" type="date" id="followupDate">
-                </div>
-              </div>
-            </div>
-          </form>
+        <div class="float-end mt-4">
+          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+            <i class="material-symbols-rounded">clear</i>
+          </button>
         </div>
-        <div class="modal-footer" style="border-top: 1px solid rgba(255, 255, 255, 0.1);">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-success" onclick="enrichLeadData()">
-            <i class="fas fa-search me-2"></i>Enrich Data
-          </button>
-          <button type="button" class="btn btn-primary" onclick="saveComprehensiveLead()">
-            <i class="fas fa-save me-2"></i>Save Lead
-          </button>
+        <!-- End Toggle Button -->
+      </div>
+      <hr class="horizontal dark my-1">
+      <div class="card-body pt-sm-3 pt-0">
+        <!-- Sidebar Backgrounds -->
+        <div>
+          <h6 class="mb-0">Sidebar Colors</h6>
+        </div>
+        <a href="javascript:void(0)" class="switch-trigger background-color">
+          <div class="badge-colors my-2 text-start">
+            <span class="badge filter bg-gradient-primary" data-color="primary" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-dark active" data-color="dark" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+          </div>
+        </a>
+        <!-- Sidenav Type -->
+        <div class="mt-3">
+          <h6 class="mb-0">Sidenav Type</h6>
+          <p class="text-sm">Choose between different sidenav types.</p>
+        </div>
+        <div class="d-flex">
+          <button class="btn bg-gradient-dark px-3 mb-2" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
+          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
+          <button class="btn bg-gradient-dark px-3 mb-2  active ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
+        </div>
+        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+        <!-- Navbar Fixed -->
+        <div class="mt-3 d-flex">
+          <h6 class="mb-0">Navbar Fixed</h6>
+          <div class="form-check form-switch ps-0 ms-auto my-auto">
+            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+          </div>
+        </div>
+        <hr class="horizontal dark my-3">
+        <div class="mt-2 d-flex">
+          <h6 class="mb-0">Light / Dark</h6>
+          <div class="form-check form-switch ps-0 ms-auto my-auto">
+            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+          </div>
+        </div>
+        <hr class="horizontal dark my-sm-4">
+        <a class="btn bg-gradient-info w-100" href="https://www.creative-tim.com/product/material-dashboard-pro">Free Download</a>
+        <a class="btn btn-outline-dark w-100" href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard">View documentation</a>
+        <div class="w-100 text-center">
+          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
+          <h6 class="mt-3">Thank you for sharing!</h6>
+          <a href="https://twitter.com/intent/tweet?text=Check%20Material%20UI%20Dashboard%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23bootstrap5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fsoft-ui-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-dashboard" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+          </a>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Core JS Files -->
+  <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="../assets/js/argon-dashboard.min.js?v=2.0.4"></script>
-
-  <!-- Enhanced CRM Dashboard JavaScript -->
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
   <script>
-    // Initialize Dashboard
-    document.addEventListener('DOMContentLoaded', function () {
-      initializeCharts();
-      initializeDragAndDrop();
-      initializeRealTimeUpdates();
-      initializeSearchAndFilters();
-      loadDashboardData();
-    });
+    var ctx = document.getElementById("chart-bars").getContext("2d");
 
-    // Initialize All Charts
-    function initializeCharts() {
-      // Revenue Progress Chart (ApexCharts)
-      const revenueOptions = {
-        series: [{
-          name: 'Actual Revenue',
-          data: [65000, 78000, 89000, 95000, 112000, 126000, 134000, 145000, 158000, 167000, 182000, 195000]
-        }, {
-          name: 'Forecasted Revenue',
-          data: [70000, 82000, 94000, 108000, 125000, 140000, 155000, 170000, 185000, 200000, 215000, 230000]
-        }, {
-          name: 'Target Revenue',
-          data: [75000, 85000, 100000, 115000, 130000, 145000, 160000, 175000, 190000, 205000, 220000, 235000]
-        }],
-        chart: {
-          height: 400,
-          type: 'area',
-          background: 'transparent',
-          toolbar: { show: false }
-        },
-        theme: { mode: 'dark' },
-        colors: ['#5e72e4', '#11cdef', '#2dce89'],
-        dataLabels: { enabled: false },
-        stroke: { curve: 'smooth', width: 3 },
-        xaxis: {
-          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-          labels: { style: { colors: '#ffffff' } }
-        },
-        yaxis: {
-          labels: {
-            style: { colors: '#ffffff' },
-            formatter: function (val) { return '$' + (val / 1000).toFixed(0) + 'K'; }
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["M", "T", "W", "T", "F", "S", "S"],
+        datasets: [{
+          label: "Views",
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "#43A047",
+          data: [50, 45, 22, 28, 50, 60, 76],
+          barThickness: 'flex'
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
           }
         },
-        legend: { labels: { colors: '#ffffff' } },
-        grid: { borderColor: 'rgba(255, 255, 255, 0.1)' },
-        fill: {
-          type: 'gradient',
-          gradient: {
-            shadeIntensity: 1,
-            opacityFrom: 0.7,
-            opacityTo: 0.3
-          }
-        }
-      };
-      const revenueChart = new ApexCharts(document.querySelector("#revenueProgressChart"), revenueOptions);
-      revenueChart.render();
-
-      // Lead Score Distribution Chart (Chart.js)
-      const scoreCtx = document.getElementById('leadScoreDistributionChart').getContext('2d');
-      new Chart(scoreCtx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Hot Leads (87-100)', 'Warm Leads (50-86)', 'Cold Leads (0-49)'],
-          datasets: [{
-            data: [125, 342, 156],
-            backgroundColor: ['#ff6b6b', '#feca57', '#74b9ff'],
-            borderWidth: 0
-          }]
+        interaction: {
+          intersect: false,
+          mode: 'index',
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'bottom',
-              labels: { color: '#ffffff', font: { size: 12 } }
-            }
-          }
-        }
-      });
-
-      // Attribution Chart
-      const attributionCtx = document.getElementById('attributionChart').getContext('2d');
-      new Chart(attributionCtx, {
-        type: 'bar',
-        data: {
-          labels: ['First Touch', 'Last Touch', 'Linear', 'Time Decay', 'Position Based'],
-          datasets: [{
-            label: 'Attribution Value',
-            data: [45000, 67000, 52000, 48000, 58000],
-            backgroundColor: '#5e72e4',
-            borderRadius: 8
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            y: {
-              ticks: { color: '#ffffff' },
-              grid: { color: 'rgba(255, 255, 255, 0.1)' }
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: '#e5e5e5'
             },
-            x: {
-              ticks: { color: '#ffffff' },
-              grid: { display: false }
-            }
-          },
-          plugins: {
-            legend: {
-              labels: { color: '#ffffff' }
-            }
-          }
-        }
-      });
-
-      // Team Performance Chart
-      const teamCtx = document.getElementById('teamPerformanceChart').getContext('2d');
-      new Chart(teamCtx, {
-        type: 'radar',
-        data: {
-          labels: ['Prospecting', 'Lead Qualification', 'Demo Conversion', 'Closing Rate', 'Activity Level', 'Pipeline Management'],
-          datasets: [{
-            label: 'John Doe',
-            data: [85, 92, 78, 88, 95, 82],
-            borderColor: '#5e72e4',
-            backgroundColor: 'rgba(94, 114, 228, 0.2)'
-          }, {
-            label: 'Sarah Smith',
-            data: [78, 88, 92, 85, 88, 90],
-            borderColor: '#11cdef',
-            backgroundColor: 'rgba(17, 205, 239, 0.2)'
-          }, {
-            label: 'Mike Johnson',
-            data: [92, 75, 82, 78, 85, 88],
-            borderColor: '#2dce89',
-            backgroundColor: 'rgba(45, 206, 137, 0.2)'
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            r: {
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
               beginAtZero: true,
-              max: 100,
-              ticks: { color: '#ffffff' },
-              grid: { color: 'rgba(255, 255, 255, 0.1)' },
-              pointLabels: { color: '#ffffff' }
+              padding: 10,
+              font: {
+                size: 14,
+                lineHeight: 2
+              },
+              color: "#737373"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#737373',
+              padding: 10,
+              font: {
+                size: 14,
+                lineHeight: 2
+              },
             }
           },
-          plugins: {
-            legend: {
-              labels: { color: '#ffffff' }
-            }
-          }
-        }
-      });
-
-      // Automation Performance Chart
-      const automationCtx = document.getElementById('automationPerformanceChart').getContext('2d');
-      new Chart(automationCtx, {
-        type: 'pie',
-        data: {
-          labels: ['Opened', 'Clicked', 'Replied', 'Converted'],
-          datasets: [{
-            data: [68, 32, 18, 12],
-            backgroundColor: ['#5e72e4', '#11cdef', '#2dce89', '#feca57']
-          }]
         },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'bottom',
-              labels: { color: '#ffffff', font: { size: 10 } }
+      },
+    });
+
+
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+    new Chart(ctx2, {
+      type: "line",
+      data: {
+        labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
+        datasets: [{
+          label: "Sales",
+          tension: 0,
+          borderWidth: 2,
+          pointRadius: 3,
+          pointBackgroundColor: "#43A047",
+          pointBorderColor: "transparent",
+          borderColor: "#43A047",
+          backgroundColor: "transparent",
+          fill: true,
+          data: [120, 230, 130, 440, 250, 360, 270, 180, 90, 300, 310, 220],
+          maxBarThickness: 6
+
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            callbacks: {
+              title: function(context) {
+                const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                return fullMonths[context[0].dataIndex];
+              }
             }
           }
-        }
-      });
-    }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [4, 4],
+              color: '#e5e5e5'
+            },
+            ticks: {
+              display: true,
+              color: '#737373',
+              padding: 10,
+              font: {
+                size: 12,
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#737373',
+              padding: 10,
+              font: {
+                size: 12,
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
 
-    // Enhanced Drag and Drop
-    function initializeDragAndDrop() {
-      const leadCards = document.querySelectorAll('.lead-card');
-      const pipelineStages = document.querySelectorAll('.pipeline-stage');
+    var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
 
-      leadCards.forEach(card => {
-        card.addEventListener('dragstart', function (e) {
-          e.dataTransfer.setData('text/plain', e.target.dataset.leadId);
-          e.target.style.opacity = '0.5';
-          e.target.style.transform = 'rotate(5deg)';
-        });
+    new Chart(ctx3, {
+      type: "line",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Tasks",
+          tension: 0,
+          borderWidth: 2,
+          pointRadius: 3,
+          pointBackgroundColor: "#43A047",
+          pointBorderColor: "transparent",
+          borderColor: "#43A047",
+          backgroundColor: "transparent",
+          fill: true,
+          data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+          maxBarThickness: 6
 
-        card.addEventListener('dragend', function (e) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'rotate(0deg)';
-        });
-      });
-
-      pipelineStages.forEach(stage => {
-        stage.addEventListener('dragover', function (e) {
-          e.preventDefault();
-          stage.style.borderColor = '#5e72e4';
-          stage.style.boxShadow = '0 0 20px rgba(94, 114, 228, 0.3)';
-        });
-
-        stage.addEventListener('dragleave', function (e) {
-          stage.style.borderColor = 'rgba(94, 114, 228, 0.3)';
-          stage.style.boxShadow = 'none';
-        });
-
-        stage.addEventListener('drop', function (e) {
-          e.preventDefault();
-          const leadId = e.dataTransfer.getData('text/plain');
-          const leadCard = document.querySelector(`[data-lead-id="${leadId}"]`);
-          const targetStage = e.currentTarget.dataset.stage;
-
-          if (leadCard && targetStage) {
-            e.currentTarget.querySelector('.leads-container').appendChild(leadCard);
-            updateLeadStage(leadId, targetStage);
-            showNotification(`Lead moved to ${targetStage.replace('-', ' ')} stage`, 'success');
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
           }
-
-          stage.style.borderColor = 'rgba(94, 114, 228, 0.3)';
-          stage.style
-          stage.style.borderColor = 'rgba(94, 114, 228, 0.3)';
-          stage.style.boxShadow = 'none';
-        });
-      });
-    }
-
-    // Real-time Updates
-    function initializeRealTimeUpdates() {
-      // Simulate real-time data updates
-      setInterval(() => {
-        updateKPIMetrics();
-        updateNotifications();
-      }, 30000);
-    }
-
-    // Search and Filters
-    function initializeSearchAndFilters() {
-      const searchInput = document.getElementById('globalSearch');
-      if (searchInput) {
-        searchInput.addEventListener('input', function (e) {
-          const searchTerm = e.target.value.toLowerCase();
-          filterLeads(searchTerm);
-        });
-      }
-    }
-
-    // Load Dashboard Data
-    function loadDashboardData() {
-      // Simulate API calls to load dashboard data
-      loadLeadData();
-      loadPipelineData();
-      loadPerformanceMetrics();
-    }
-
-    // Update KPI Metrics
-    function updateKPIMetrics() {
-      const metrics = {
-        totalPipelineValue: generateRandomValue(2500000, 3000000),
-        leadVelocity: generateRandomValue(30, 40),
-        mqlToSqlRate: generateRandomValue(25, 35),
-        customerLTV: generateRandomValue(40000, 50000)
-      };
-
-      document.getElementById('totalPipelineValue').textContent = '$' + (metrics.totalPipelineValue / 1000).toFixed(0) + 'K';
-      document.getElementById('leadVelocity').textContent = metrics.leadVelocity.toFixed(1) + ' days';
-      document.getElementById('mqlToSqlRate').textContent = metrics.mqlToSqlRate.toFixed(1) + '%';
-      document.getElementById('customerLTV').textContent = '$' + (metrics.customerLTV / 1000).toFixed(0) + 'K';
-    }
-
-    // Utility Functions
-    function generateRandomValue(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    function filterLeads(searchTerm) {
-      const leadCards = document.querySelectorAll('.lead-card');
-      leadCards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        if (text.includes(searchTerm)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = searchTerm === '' ? 'block' : 'none';
-        }
-      });
-    }
-
-    // Lead Management Functions
-    function updateLeadStage(leadId, newStage) {
-      console.log(`Updating lead ${leadId} to stage ${newStage}`);
-      // API call to update lead stage
-      fetch('/api/leads/update-stage', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ leadId: leadId, stage: newStage })
-      }).then(response => response.json())
-        .then(data => console.log('Lead updated:', data))
-        .catch(error => console.error('Error:', error));
-    }
-
-    function saveComprehensiveLead() {
-      // Collect all form data
-      const leadData = {
-        // Contact Information
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        jobTitle: document.getElementById('jobTitle').value,
-        emailAddress: document.getElementById('emailAddress').value,
-        phoneNumber: document.getElementById('phoneNumber').value,
-        linkedinProfile: document.getElementById('linkedinProfile').value,
-        timeZone: document.getElementById('timeZone').value,
-
-        // Company Information
-        companyName: document.getElementById('companyName').value,
-        industry: document.getElementById('industry').value,
-        companySize: document.getElementById('companySize').value,
-        annualRevenue: document.getElementById('annualRevenue').value,
-        companyWebsite: document.getElementById('companyWebsite').value,
-        techStack: document.getElementById('techStack').value,
-
-        // Lead Qualification
-        leadSource: document.getElementById('leadSource').value,
-        campaign: document.getElementById('campaign').value,
-        leadStatus: document.getElementById('leadStatus').value,
-        budget: document.getElementById('budget').value,
-        authority: document.getElementById('authority').value,
-        urgency: document.getElementById('urgency').value,
-        painPoint: document.getElementById('painPoint').value,
-
-        // Additional Details
-        currentSolution: document.getElementById('currentSolution').value,
-        howFoundUs: document.getElementById('howFoundUs').value,
-        leadNotes: document.getElementById('leadNotes').value,
-        assignedRep: document.getElementById('assignedRep').value,
-        followupDate: document.getElementById('followupDate').value
-      };
-
-      // Validate required fields
-      if (!leadData.firstName || !leadData.lastName || !leadData.emailAddress ||
-        !leadData.companyName || !leadData.leadSource) {
-        showNotification('Please fill in all required fields', 'error');
-        return;
-      }
-
-      // Calculate lead score
-      leadData.leadScore = calculateLeadScore(leadData);
-
-      // Save lead data
-      fetch('/api/leads/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(leadData)
-      })
-        .then(response => response.json())
-        .then(data => {
-          showNotification('Lead saved successfully!', 'success');
-          const modal = bootstrap.Modal.getInstance(document.getElementById('comprehensiveLeadModal'));
-          modal.hide();
-          document.getElementById('comprehensiveLeadForm').reset();
-          loadDashboardData(); // Refresh dashboard
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          showNotification('Error saving lead', 'error');
-        });
-    }
-
-    function calculateLeadScore(leadData) {
-      let score = 0;
-
-      // Demographic scoring (40 points max)
-      if (leadData.industry === 'technology') score += 15;
-      else if (leadData.industry === 'healthcare' || leadData.industry === 'finance') score += 12;
-      else score += 8;
-
-      if (leadData.companySize === '201-1000' || leadData.companySize === '1001-5000') score += 15;
-      else if (leadData.companySize === '51-200' || leadData.companySize === '5000+') score += 12;
-      else score += 5;
-
-      if (leadData.authority === 'decision-maker') score += 15;
-      else if (leadData.authority === 'influencer') score += 10;
-      else score += 5;
-
-      // Behavioral scoring (30 points max)
-      if (leadData.leadSource === 'referral') score += 20;
-      else if (leadData.leadSource === 'linkedin-ads' || leadData.leadSource === 'google-ads') score += 15;
-      else score += 10;
-
-      // Qualification scoring (30 points max)
-      if (leadData.urgency === 'immediate') score += 15;
-      else if (leadData.urgency === 'short-term') score += 10;
-      else score += 5;
-
-      if (leadData.budget === '>100K') score += 15;
-      else if (leadData.budget === '50K-100K') score += 10;
-      else score += 5;
-
-      return Math.min(score, 100); // Cap at 100
-    }
-
-    function enrichLeadData() {
-      const email = document.getElementById('emailAddress').value;
-      const companyName = document.getElementById('companyName').value;
-
-      if (!email && !companyName) {
-        showNotification('Please enter an email or company name for enrichment', 'warning');
-        return;
-      }
-
-      showNotification('Enriching lead data...', 'info');
-
-      // Simulate data enrichment API call
-      setTimeout(() => {
-        // Mock enriched data
-        if (companyName && !document.getElementById('companyWebsite').value) {
-          document.getElementById('companyWebsite').value = 'https://' + companyName.toLowerCase().replace(' ', '') + '.com';
-        }
-
-        if (!document.getElementById('industry').value) {
-          document.getElementById('industry').value = 'technology';
-        }
-
-        if (!document.getElementById('companySize').value) {
-          document.getElementById('companySize').value = '201-1000';
-        }
-
-        showNotification('Lead data enriched successfully!', 'success');
-      }, 2000);
-    }
-
-    // Pipeline Management Functions
-    function togglePipelineView() {
-      // Toggle between board view and list view
-      const currentView = document.querySelector('.pipeline-stage').style.display;
-      const newView = currentView === 'none' ? 'block' : 'none';
-
-      document.querySelectorAll('.pipeline-stage').forEach(stage => {
-        stage.style.display = newView;
-      });
-    }
-
-    function addNewDeal() {
-      // Open comprehensive lead modal
-      const modal = new bootstrap.Modal(document.getElementById('comprehensiveLeadModal'));
-      modal.show();
-    }
-
-    // Notification System
-    function showNotification(message, type) {
-      const notification = document.createElement('div');
-      notification.className = `notification alert alert-${type === 'error' ? 'danger' : type} alert-dismissible fade show`;
-      notification.innerHTML = `
-        <i class="fas fa-${getNotificationIcon(type)} me-2"></i>
-        ${message}
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
-      `;
-
-      document.body.appendChild(notification);
-
-      // Auto-remove after 5 seconds
-      setTimeout(() => {
-        if (notification.parentNode) {
-          notification.parentNode.removeChild(notification);
-        }
-      }, 5000);
-    }
-
-    function getNotificationIcon(type) {
-      const icons = {
-        'success': 'check-circle',
-        'error': 'exclamation-circle',
-        'warning': 'exclamation-triangle',
-        'info': 'info-circle'
-      };
-      return icons[type] || 'info-circle';
-    }
-
-    // Data Loading Functions
-    function loadLeadData() {
-      // Simulate loading lead data from API
-      console.log('Loading lead data...');
-    }
-
-    function loadPipelineData() {
-      // Simulate loading pipeline data from API
-      console.log('Loading pipeline data...');
-    }
-
-    function loadPerformanceMetrics() {
-      // Simulate loading performance metrics from API
-      console.log('Loading performance metrics...');
-    }
-
-    function updateNotifications() {
-      // Update notification count
-      const count = Math.floor(Math.random() * 10) + 1;
-      document.getElementById('notificationCount').textContent = count;
-    }
-
-    // Tab Management
-    document.addEventListener('DOMContentLoaded', function () {
-      const tabs = document.querySelectorAll('[data-bs-toggle="pill"]');
-      tabs.forEach(tab => {
-        tab.addEventListener('shown.bs.tab', function (e) {
-          const targetId = e.target.getAttribute('data-bs-target');
-          console.log('Switched to tab:', targetId);
-          // Load tab-specific data if needed
-        });
-      });
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [4, 4],
+              color: '#e5e5e5'
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#737373',
+              font: {
+                size: 14,
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [4, 4]
+            },
+            ticks: {
+              display: true,
+              color: '#737373',
+              padding: 10,
+              font: {
+                size: 14,
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
     });
-
-    // Quick Actions
-    function refreshDashboard() {
-      showNotification('Refreshing dashboard data...', 'info');
-      loadDashboardData();
-      updateKPIMetrics();
-    }
-
-    // Mobile Responsiveness
-    function handleMobileView() {
-      const isMobile = window.innerWidth <= 768;
-      const pipelineStages = document.querySelectorAll('.pipeline-stage');
-
-      pipelineStages.forEach(stage => {
-        if (isMobile) {
-          stage.classList.add('mb-3');
-          stage.style.minHeight = '150px';
-        } else {
-          stage.classList.remove('mb-3');
-          stage.style.minHeight = '200px';
-        }
-      });
-    }
-
-    // Event Listeners
-    window.addEventListener('resize', handleMobileView);
-
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function () {
-      handleMobileView();
-      console.log('LeadXcel B2B CRM Dashboard loaded successfully!');
-    });
-
-    // Export functions for external use
-    window.CRMDashboard = {
-      updateLeadStage,
-      saveComprehensiveLead,
-      enrichLeadData,
-      refreshDashboard,
-      showNotification
-    };
   </script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>
 </body>
 
 </html>

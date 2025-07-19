@@ -1,73 +1,141 @@
 # Change Log
 
-## [2.1.0] 2024-10-25
+## [3.2.0] 2024-10-22
 
-### Update and Improvements
+### Updates & Improvements
 
 - update Bootstrap to v5.3.3
 - all plugins updated to the latest version
 
-## [2.0.4] 2022-06-27
+## [3.1.0] 2023-04-25
 
-### Buxfixing
+### Updates & Improvements
 
-- update `<html>` tag border
-- fix the .input-group border on focus
-- fix sidebar background-color on window resize
+- update Bootstrap to v5.2.2
+- update Popper to v2.11.6
 
-## [2.0.3] 2022-06-10
+## [3.0.5] 2022-10-10
+
+### Updates & Improvements
+
+- update Bootstrap to v5.2.2
+- update Popper to v2.11.6
+- update `start-0` and `end-0` classes on RTL
+- fix perfectScrollbar issue on RTL
+- fix the NavTabs second active tab issue
+
+## [3.0.4] 2022-06-15
+
+### BugFixing
+
+- fix inputs on RTL
+- update <html> tag border
+
+## [3.0.3] 2022-06-08
 
 ### Update and Improvements
 
 - update Bootstrap to v5.2.0-beta1
+- fix modal close button on docs
+- update color of `.form-control` on Dark Mode
+- update typo on card stats
+- fix Safari browser button styling issue
+- add sticky navbar option on Profile page
+- add link to Sign In page in navbar
+- update dropdown item color on hover - Dark Mode
 
-## [2.0.2] 2022-03-25
+## [3.0.2] 2022-03-25
 
-### Update
+### Updates
 
 - update SCSS folder
 
-## [2.0.1] 2022-03-08
+## [3.0.1] 2022-03-07
 
 ### Update and Improvements
 
 - fix running 'npm install' issue
 - fix SCSS compiling issues
 
-## [2.0.0] 2022-01-25
+## [3.0.0] 2021-10-19
 
-### Update and Improvements
+### Refactor and Improvements
 
 - Update Bootstrap to v5.1.3
-- Add new example pages
-- Add Light/Dark feature
+- Update to Material Design 2
 - New Documentation version
+- New Product structure
 
-## [1.0.3] 2021-06-25
+## [2.1.2] 2020-02-11
 
-### Updates & Improvements
+### Improvements, BugFixing
 
-- upgrade Bootstrap version to v5.0.2
-- add new page - Virtual Reality
-- add perfectScrollbar for Windows users
-- change headings color from '#252F40' to '#344767'
-- reduce the 'img' folder size - compress images
-- bug fixing
-- fix W3 errors
+- Fixed the broken links
+- Improvements and BugFixing for documentation
+- Change versions on CSS and JS files
 
-## [1.0.2] 2021-05-10
+## [2.1.1] 2018-11-13
 
-### Updates & Bugfixing
+### Improvements, BugFixing
 
-- upgrade Bootstrap version to v5.0.1
-- bug fixing
+- Changes for responsive devices
+- Improvements and BugFixing for documentation
+- Change versions on CSS and JS files
+- Pro Documentation integrated in Free Version
+- Eliminated extra CSS and JS
 
-## [1.0.1] 2021-04-06
+## [2.1.0] 2018-06-13
 
-### Improvements
+### Bug fixing
 
-- Design changes
+- Card-chart fixed on Windows
+- Bug fixes for responsive devices
+- Small changes for components
 
-## [1.0.0] 2021-04-02
+## [2.0.0] 2018-03-27
 
-### Original Release
+### Bootstrap 4 update
+
+- Core base code on Bootstrap 4
+- Documentation code base written from scratch
+- Speed optimizations
+- Class changes : .card-block to .card-body
+  - .navbar-toggleable-_ to .navbar-expand-_
+  - .hidden-_-down to .d-none .d-_-block
+  - .hidden-_-up to .d-_-none
+  - .checkbox to .form-check
+  - .radio to .form-check
+  - more class changes here:https://getbootstrap.com/docs/4.0/migration/
+- Bug fixes for responsive devices
+- Small changes for components
+
+## [1.2.0] 2017-09-08
+
+### BugFixing
+
+- added PerfectScrollbar for windows better scroll
+- added arrive.js library for dynamic content
+- fix issue with charts when resizing window
+- change size of buttons for notifications on mobile
+- added pagination style
+- fixed issue with Bootstrap modal
+- added fixed navbar
+- documentation updates
+- minor design fixes
+
+## [1.1.1] 2017-02-08
+
+### MIT License
+
+- switched to MIT License
+
+## [1.1.0] 2016-11-10
+
+### New Page Added, Small Fixes
+
+- fix link in documentation
+- for those who want to upsell inside their dashboard we added a new page "Upgrade to PRO" with a pricing and options table
+
+## [1.0.0] 2016-09-21
+
+### Initial Release
